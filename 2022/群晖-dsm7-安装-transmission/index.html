@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>群晖 DSM7 安装 transmission | WINNIE BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="很多年前买了一台群晖 DS218，然后买了2块二手 2tb 硬盘塞了进去，没想到这两块兢兢业业的工作了很多年。
+只是就在前几天，群晖报警有一块硬盘坏了。我这才关注了一下硬盘的使用时间，死掉的这个硬盘工作了3万多小时，还活着的这块硬盘使用时间已经超过5万小时……我感觉这块也要挂了。">
+  
+  
+  
+    <link rel="shortcut icon" href="../../favicon.ico">
+  
+  <link rel="stylesheet" href="../../css/style.css">
+  
+    <link rel="stylesheet" href="../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../index.html" id="logo">WINNIE BLOG</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-群晖-DSM7-安装-transmission" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T08:02:55.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      群晖 DSM7 安装 transmission
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>很多年前买了一台群晖 DS218<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后买了2块二手 2tb 硬盘塞了进去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没想到这两块兢兢业业的工作了很多年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>只是就在前几天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>群晖报警有一块硬盘坏了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我这才关注了一下硬盘的使用时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>死掉的这个硬盘工作了3万多小时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还活着的这块硬盘使用时间已经超过5万小时……我感觉这块也要挂了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><span id="more"></span></p>
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3.us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5530fb2f-7876-4df0-8f11-ded26d12aa37%2FXnip2022-02-14_13-50-24.jpg%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Content-Sha256%3DUNSIGNED-PAYLOAD%26X-Amz-Credential%3DAKIAT73L2G45EIPT3X45%252F20220412%252Fus-west-2%252Fs3%252Faws4_request%26X-Amz-Date%3D20220412T050428Z%26X-Amz-Expires%3D86400%26X-Amz-Signature%3D48c712c302a936bf26ae682f43edf18b99fdcafea9247efee71712beb382bbaa%26X-Amz-SignedHeaders%3Dhost%26x-id%3DGetObject?table=block&amp;id=544e59f4-010e-491b-8ff2-be86315cee20&amp;cache=v2" alt="硬盘"></p>
+<p>其实我对硬盘的需求很小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这台群晖最大的用处是在 docker 上跑 shadowsocks server 和 homebridge<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>跑一些临时用的静态网页和脚本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>再有就是用 transmission 下载一些不会一直保留的🎬电影<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="安装-transmission">安装 transmission</h2>
+<p>我参考这篇文章完成了安装<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对我来说完全没有问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://ceshidao.com/get-enhanced-transmission-running-on-dsm7/">为群晖DSM 7安装Transmission及其加强版中文界面</a></p>
+<h4 id="安装步骤<span-class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>">安装步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4>
+<ul>
+<li>
+<p>DSM7 套件中心添加安装源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="http://packages.synocommunity.com/">http://packages.synocommunity.com/</a></p>
+</li>
+<li>
+<p>更改下载文件夹的属性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>添加 everyone 完全控制<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>我不确定这一步是否有其他风险<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+<li>
+<p>修改 DSM7 系统 hosts 文件来访问 github<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>没想到真的有用耶<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+<li>
+<p>安装 transmission 皮肤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要用 root 用户运行一键安装脚本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大概看了下没什么问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://github.com/ronggang/transmission-web-control">https://github.com/ronggang/transmission-web-control</a></p>
+</li>
+</ul>
+<h2 id="配置文件">配置文件</h2>
+<p>我需要对 transmission 进行一些个性化配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的配置文件在 <code>/volume1/@appdata/transmission/</code></p>
+<div class="highlight"><pre class="code"><code>&#123;
+    <span class="hljs-attr">&quot;alt-speed-down&quot;</span>: <span class="hljs-number">50</span>,
+    <span class="hljs-attr">&quot;alt-speed-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;alt-speed-time-begin&quot;</span>: <span class="hljs-number">540</span>,
+    <span class="hljs-attr">&quot;alt-speed-time-day&quot;</span>: <span class="hljs-number">127</span>,
+    <span class="hljs-attr">&quot;alt-speed-time-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;alt-speed-time-end&quot;</span>: <span class="hljs-number">1020</span>,
+    <span class="hljs-attr">&quot;alt-speed-up&quot;</span>: <span class="hljs-number">50</span>,
+    <span class="hljs-attr">&quot;bind-address-ipv4&quot;</span>: <span class="hljs-string">&quot;0.0.0.0&quot;</span>,
+    <span class="hljs-attr">&quot;bind-address-ipv6&quot;</span>: <span class="hljs-string">&quot;::&quot;</span>,
+    <span class="hljs-attr">&quot;blocklist-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;blocklist-url&quot;</span>: <span class="hljs-string">&quot;http://www.example.com/blocklist&quot;</span>,
+    <span class="hljs-attr">&quot;cache-size-mb&quot;</span>: <span class="hljs-number">4</span>,
+    <span class="hljs-attr">&quot;dht-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;download-dir&quot;</span>: <span class="hljs-string">&quot;/volume2/b_downloads/transmission_complete&quot;</span>,
+    <span class="hljs-attr">&quot;download-queue-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;download-queue-size&quot;</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">&quot;encryption&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">&quot;idle-seeding-limit&quot;</span>: <span class="hljs-number">30</span>,
+    <span class="hljs-attr">&quot;idle-seeding-limit-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;incomplete-dir&quot;</span>: <span class="hljs-string">&quot;/volume1/ssd_download/transmission_download/incomplete&quot;</span>,
+    <span class="hljs-attr">&quot;incomplete-dir-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;lpd-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;message-level&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">&quot;peer-congestion-algorithm&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">&quot;peer-id-ttl-hours&quot;</span>: <span class="hljs-number">6</span>,
+    <span class="hljs-attr">&quot;peer-limit-global&quot;</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">&quot;peer-limit-per-torrent&quot;</span>: <span class="hljs-number">50</span>,
+    <span class="hljs-attr">&quot;peer-port&quot;</span>: <span class="hljs-number">51413</span>,
+    <span class="hljs-attr">&quot;peer-port-random-high&quot;</span>: <span class="hljs-number">65535</span>,
+    <span class="hljs-attr">&quot;peer-port-random-low&quot;</span>: <span class="hljs-number">49152</span>,
+    <span class="hljs-attr">&quot;peer-port-random-on-start&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;peer-socket-tos&quot;</span>: <span class="hljs-string">&quot;default&quot;</span>,
+    <span class="hljs-attr">&quot;pex-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;pidfile&quot;</span>: <span class="hljs-string">&quot;/volume1/@appdata/transmission/transmission.pid&quot;</span>,
+    <span class="hljs-attr">&quot;port-forwarding-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;preallocation&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">&quot;prefetch-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;queue-stalled-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;queue-stalled-minutes&quot;</span>: <span class="hljs-number">30</span>,
+    <span class="hljs-attr">&quot;ratio-limit&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">&quot;ratio-limit-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;rename-partial-files&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;rpc-authentication-required&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;rpc-bind-address&quot;</span>: <span class="hljs-string">&quot;0.0.0.0&quot;</span>,
+    <span class="hljs-attr">&quot;rpc-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;rpc-host-whitelist&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">&quot;rpc-host-whitelist-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;rpc-password&quot;</span>: <span class="hljs-string">&quot;your-password-here&quot;</span>,
+    <span class="hljs-attr">&quot;rpc-port&quot;</span>: <span class="hljs-number">9091</span>,
+    <span class="hljs-attr">&quot;rpc-url&quot;</span>: <span class="hljs-string">&quot;/transmission/&quot;</span>,
+    <span class="hljs-attr">&quot;rpc-username&quot;</span>: <span class="hljs-string">&quot;winniesi&quot;</span>,
+    <span class="hljs-attr">&quot;rpc-whitelist&quot;</span>: <span class="hljs-string">&quot;127.0.0.1,::1&quot;</span>,
+    <span class="hljs-attr">&quot;rpc-whitelist-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;scrape-paused-torrents-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;script-torrent-done-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;script-torrent-done-filename&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">&quot;seed-queue-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;seed-queue-size&quot;</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">&quot;speed-limit-down&quot;</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">&quot;speed-limit-down-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;speed-limit-up&quot;</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">&quot;speed-limit-up-enabled&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;start-added-torrents&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;trash-original-torrent-files&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;umask&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">&quot;upload-slots-per-torrent&quot;</span>: <span class="hljs-number">14</span>,
+    <span class="hljs-attr">&quot;utp-enabled&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;watch-dir&quot;</span>: <span class="hljs-string">&quot;/volume1/ssd_download/transmission_download/watch&quot;</span>,
+    <span class="hljs-attr">&quot;watch-dir-enabled&quot;</span>: <span class="hljs-literal">true</span>
+&#125;
+</code></pre></div>
+<p>这里有一个很好的关于配置的说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://blog.inkuang.com/2019/403/">Transmission 2.94 配置文件参数中文解释</a></p>
+<h3 id="其他">其他</h3>
+<p>我在之前出过一个下载失败的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是因为没有设置下载文件夹的权限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>设置为 everyone 完全控制后就没问题了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/transmission/" rel="tag">transmission</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E7%BE%A4%E6%99%96/" rel="tag">群晖</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../%E5%88%A0%E9%99%A4-github-%E4%B8%8A%E5%A4%9A%E4%BD%99%E7%9A%84%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6%E5%A4%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          删除 GitHub 上多余的文件/文件夹
+        
+      </div>
+    </a>
+  
+  
+    <a href="../%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84-python-%E5%8C%85%E5%8F%91%E5%B8%83%E5%88%B0-pypi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">
+        
+          把自己的 Python 包发布到 PyPi
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <p>powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a></p>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="../../js/clipboard.min.js"></script>
+<script src="../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+</body>
+</html>

@@ -42,6 +42,149 @@
       <div id="content" class="outer">
         <section id="main">
   
+    <article id="post-使用-direnv-自动激活-python-虚拟环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2022/%E4%BD%BF%E7%94%A8-direnv-%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB-python-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T08:11:22.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2022/%E4%BD%BF%E7%94%A8-direnv-%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB-python-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/">使用 direnv 自动激活 python 虚拟环境</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>从 python 3 的某个版本后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创建虚拟环境变得很方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>python3 -m venv env_xxx
+</code></pre></div>
+<p>但是这个方式有个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那就是每次更换开发的项目的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要频繁的切换虚拟环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>direnv 这个项目可以很好的解决这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和 pyenv 类似<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>direnv 会在项目目录下写入一个文件 <code>.envrc</code> 并写入进入文件后需要运行的命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>值得一提的是 direnv 对 python 虚拟环境支持的非常好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需要简单的设置就能使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在需要激活的文件夹下创建 <code>.envrc</code> 文件并写入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>layout python3
+</code></pre></div>
+<p>在该目录下执行 <code>direnv allow .</code> 授予权限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这时候会在当前目录的 <code>.direnv</code> 文件夹下自动创建虚拟环境<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不需要再手动创建了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>下次进入这个文件即可自动激活该虚拟环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>关于 direnv 对 python 的支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更多内容和兼容性可以看这里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://github.com/direnv/direnv/wiki/Python">https://github.com/direnv/direnv/wiki/Python</a></p>
+<p>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>vscode 上也有支持 direnv 的扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用起来很方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/direnv/" rel="tag">direnv</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-删除-GitHub-上多余的文件-文件夹" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2022/%E5%88%A0%E9%99%A4-github-%E4%B8%8A%E5%A4%9A%E4%BD%99%E7%9A%84%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6%E5%A4%B9/" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T08:08:42.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2022/%E5%88%A0%E9%99%A4-github-%E4%B8%8A%E5%A4%9A%E4%BD%99%E7%9A%84%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6%E5%A4%B9/">删除 GitHub 上多余的文件/文件夹</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>以删除 .direnv 文件夹为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>git rm -r --cached .direnv  # --cached 不会把本地的 .direnv 删除
+git commit -m &#x27;delete .idea dir&#x27;
+git push -u origin master`
+</code></pre></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/GitHub/" rel="tag">GitHub</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-群晖-DSM7-安装-transmission" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2022/%E7%BE%A4%E6%99%96-dsm7-%E5%AE%89%E8%A3%85-transmission/" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T08:02:55.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2022/%E7%BE%A4%E6%99%96-dsm7-%E5%AE%89%E8%A3%85-transmission/">群晖 DSM7 安装 transmission</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>很多年前买了一台群晖 DS218<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后买了2块二手 2tb 硬盘塞了进去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没想到这两块兢兢业业的工作了很多年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>只是就在前几天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>群晖报警有一块硬盘坏了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我这才关注了一下硬盘的使用时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>死掉的这个硬盘工作了3万多小时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还活着的这块硬盘使用时间已经超过5万小时……我感觉这块也要挂了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>
+        
+          <p class="article-more-link">
+            <a href="2022/%E7%BE%A4%E6%99%96-dsm7-%E5%AE%89%E8%A3%85-transmission/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/transmission/" rel="tag">transmission</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E7%BE%A4%E6%99%96/" rel="tag">群晖</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-把自己的-Python-包发布到-PyPi" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2022/%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84-python-%E5%8C%85%E5%8F%91%E5%B8%83%E5%88%B0-pypi/" class="article-date">
@@ -65,7 +208,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>把自己的写的 python 包发布到 pypi 后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以方便的通过 pip install 安装<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>写过大名鼎鼎 requests 包的作者有一个 <a target="_blank" rel="noopener" href="http://setup.py/">setup.py</a> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用这个已经配置好的文件可以非常方便的上传自己的包<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>
+        <p>把自己的写的 python 包发布到 pypi 后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以方便的通过 pip install 安装<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>写过大名鼎鼎 requests 包的作者有一个 <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用这个已经配置好的文件可以非常方便的上传自己的包<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>
         
           <p class="article-more-link">
             <a href="2022/%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84-python-%E5%8C%85%E5%8F%91%E5%B8%83%E5%88%B0-pypi/#more">Read More</a>
@@ -122,6 +265,8 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/macOS/" rel="tag">macOS</a></li></ul>
+
     </footer>
   </div>
   
