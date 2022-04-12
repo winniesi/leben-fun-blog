@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>macOS 按需挂载移动硬盘 | WINNIE BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="由于我工作用的 MacBook 常年连接显示器使用（LG Ultrafine 4K），又通过显示器的 type-c 连接移动硬盘使用。电脑每次开机都会自动 mount 硬盘，这没问题，但每次断开 MacBook 和显示器的连接时，都需要 unmount 一下这个硬盘，就特别烦人。">
+  
+  
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">WINNIE BLOG</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-macOS按需挂载移动硬盘" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T07:24:56.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      macOS 按需挂载移动硬盘
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>由于我工作用的 MacBook 常年连接显示器使用<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>LG Ultrafine 4K<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又通过显示器的 type-c 连接移动硬盘使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>电脑每次开机都会自动 mount 硬盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这没问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但每次断开 MacBook 和显示器的连接时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都需要 unmount 一下这个硬盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就特别烦人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><span id="more"></span></p>
+<p>这块硬盘的资料只是偶尔查看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我需要系统不再自动加载这块硬盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要的时候我手动加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>github 上有一个项目能满足我的要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是已经太久不更新了我估计跑不起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在 Linux 里面可以用 fstab 文件控制加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我觉得在 macOS 同样可以吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>试了试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>确实可以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span></p>
+<p>只需要在 macOS /etc/fstab 文件里面添加这样一行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>UUID=xxx-xxx none exfat rw,noauto
+</code></pre></div>
+<p>上面的 UUID 和硬盘格式可以通过 <code>diskutil info /Volumes/硬盘名</code> 获得<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>请看下面图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3.us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F59c05518-e070-47d2-aa2a-e79ce948dcea%2FUntitled.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Content-Sha256%3DUNSIGNED-PAYLOAD%26X-Amz-Credential%3DAKIAT73L2G45EIPT3X45%252F20220407%252Fus-west-2%252Fs3%252Faws4_request%26X-Amz-Date%3D20220407T075633Z%26X-Amz-Expires%3D86400%26X-Amz-Signature%3D8d56cd46daf548ecabb1e337491e613968f06ce3e348b17adc3e4f764b51b4a9%26X-Amz-SignedHeaders%3Dhost%26x-id%3DGetObject?table=block&amp;id=50278531-a3c6-4b29-9066-cb71fa7db9be&amp;cache=v2" alt=""></p>
+<p>这样再次连接移动硬盘就不会自动加载了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>磁盘工具.app<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>手动加载才能使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <p>powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a></p>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+</body>
+</html>
