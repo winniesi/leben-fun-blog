@@ -72,7 +72,7 @@
 <p>其实我对硬盘的需求很小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这台群晖最大的用处是在 docker 上跑 shadowsocks server 和 homebridge<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>跑一些临时用的静态网页和脚本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>再有就是用 transmission 下载一些不会一直保留的🎬电影<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h2 id="安装-transmission">安装 transmission</h2>
 <p>我参考这篇文章完成了安装<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对我来说完全没有问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://ceshidao.com/get-enhanced-transmission-running-on-dsm7/">为群晖DSM 7安装Transmission及其加强版中文界面</a></p>
-<h4 id="安装步骤<span-class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>">安装步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4>
+<p><strong>安装步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
 <ul>
 <li>
 <p>DSM7 套件中心添加安装源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="http://packages.synocommunity.com/">http://packages.synocommunity.com/</a></p>
@@ -88,7 +88,7 @@
 </li>
 </ul>
 <h2 id="配置文件">配置文件</h2>
-<p>我需要对 transmission 进行一些个性化配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的配置文件在 <code>/volume1/@appdata/transmission/</code></p>
+<p>我需要对 transmission 进行个性化配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的配置文件在 <code>/volume1/@appdata/transmission/</code></p>
 <div class="highlight"><pre class="code"><code>&#123;
     <span class="hljs-attr">&quot;alt-speed-down&quot;</span>: <span class="hljs-number">50</span>,
     <span class="hljs-attr">&quot;alt-speed-enabled&quot;</span>: <span class="hljs-literal">false</span>,
