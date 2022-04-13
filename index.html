@@ -68,16 +68,12 @@
         <p>从 python 3 的某个版本后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创建虚拟环境变得很方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <div class="highlight"><pre class="code"><code>python3 -m venv env_xxx
 </code></pre></div>
-<p>但是这个方式有个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那就是每次更换开发的项目的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要频繁的切换虚拟环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>direnv 这个项目可以很好的解决这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和 pyenv 类似<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>direnv 会在项目目录下写入一个文件 <code>.envrc</code> 并写入进入文件后需要运行的命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>值得一提的是 direnv 对 python 虚拟环境支持的非常好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需要简单的设置就能使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>在需要激活的文件夹下创建 <code>.envrc</code> 文件并写入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<div class="highlight"><pre class="code"><code>layout python3
-</code></pre></div>
-<p>在该目录下执行 <code>direnv allow .</code> 授予权限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这时候会在当前目录的 <code>.direnv</code> 文件夹下自动创建虚拟环境<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不需要再手动创建了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>下次进入这个文件即可自动激活该虚拟环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>关于 direnv 对 python 的支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更多内容和兼容性可以看这里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://github.com/direnv/direnv/wiki/Python">https://github.com/direnv/direnv/wiki/Python</a></p>
-<p>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>vscode 上也有支持 direnv 的扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用起来很方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-
+<p>但是这个方式有个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那就是每次更换开发的项目的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要频繁的切换虚拟环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>
+        
+          <p class="article-more-link">
+            <a href="2022/%E4%BD%BF%E7%94%A8-direnv-%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB-python-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -285,7 +281,7 @@ git push -u origin master`
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        <p>This is my email just in case: winniesi@leben.fun</p>
+        <p>This is my email just in case: winnie@leben.fun</p>
       
     </div>
   </div>
